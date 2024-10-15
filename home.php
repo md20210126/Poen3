@@ -189,13 +189,13 @@
             let sala = selectedRow.find('td:eq(2)').text();
             let datum = selectedRow.find('td:eq(3)').text();
 
-            let id = $(this).val();
+            // let id = $(this).val();
 
-            $('#id_predmeta').val(id);
-            $('#predmet').val(predmet);
-            $('#katedra').val(katedra);
-            $('#sala').val(sala);
-            $('#datum').val(datum);
+            // $('#id_predmeta').val(id);
+            // $('#predmet').val(predmet);
+            // $('#katedra').val(katedra);
+            // $('#sala').val(sala);
+            // $('#datum').val(datum);
         });
     </script>
 </body>
