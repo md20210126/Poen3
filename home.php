@@ -1,3 +1,28 @@
+<?php
+    require 'dbBroker.php';
+    require 'model/prijava.php';
+
+    //ako korisnik nije logovan, ne može otići direktno na url /home.php
+    session_start(); //resume existing session
+    if(!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
+        exit(); 
+    }
+
+    $result = Prijava::getAll($conn);
+    // pokazem u php manual sve funkcije za mysqli_result
+    // echo json_encode($result->fetch_row());
+    // echo json_encode($result->fetch_all());
+    // echo json_encode($result->fetch_array());
+
+    if(!$result) {
+        echo "Neuspešno izvršavanje upita u bazi. <br>";
+        exit(); //funkcija ekvivalentna exit() funkciji
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +56,7 @@
         <!-- Table section -->
         <div id="pregled" class="panel panel-success">
             <div class="panel-body">
-                <form id="prijavaForm" action="#" method="post">
+                <form id="prijavaForm" action="obrada.php" method="post">
                     <table id="myTable" class="table table-hover table-striped">
                         <thead>
                             <tr>
@@ -43,6 +68,8 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- fetch_array -> za svaki red vraca asocijativni niz -->
+                            <?php if ($result->num_rows > 0) :?>
                             <?php while ($red = $result->fetch_array()) { ?>
                                 <tr>
                                     <td><?php echo $red["predmet"] ?></td>
@@ -56,11 +83,11 @@
                                         </label>
                                     </td>
                                 </tr>
-                            <?php } ?>
-                            ?>
+                            <?php } else: ?>
                             <tr>
                                 <td colspan="5" class="text-center">Nema unetih kolokvijuma</td>
                             </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
 
@@ -86,7 +113,7 @@
                         <h3 class="modal-title text-center">Zakazi kolokvijum</h3>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" id="dodajForm">
+                        <form action="obrada.php" method="post" id="dodajForm">
                             <div class="form-group">
                                 <label>Predmet</label>
                                 <input type="text" name="predmet" class="form-control" required>
