@@ -1,5 +1,5 @@
 <?php 
-//ne znam sta je ovde potrebno? ceo kod svakako radi
+//ne znam sta je ovde potrebno? ceo kod svakako radi cak iako ovo ne implementiram
 
 
 // if (isset($_POST['id_predmeta'])   
