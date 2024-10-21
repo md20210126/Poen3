@@ -1,5 +1,5 @@
 <?php 
-
+//radi
 if (isset($_POST['id_predmeta']) 
     && isset($_POST['submit'])    
     && $_POST['submit'] == "izmeni" 
