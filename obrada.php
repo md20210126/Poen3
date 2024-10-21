@@ -5,7 +5,7 @@
     require "handler/add.php";
     require "handler/update.php";
 
-    // echo "obrada..";
+    // echo "obrada...";
 
     header("Location: home.php");
 

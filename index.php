@@ -1,5 +1,5 @@
 <?php
-    // obrada Login funkcije
+    // obrada Login funkcije!
     require 'dbBroker.php';
     require 'model/user.php';
 
