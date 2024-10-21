@@ -1,4 +1,6 @@
 <?php 
+//ne znam sta je ovde potrebno? ceo kod svakako radi
+
 
 // if (isset($_POST['id_predmeta'])   
 //     && isset($_POST['id_predmeta'])
