@@ -11,12 +11,12 @@ class User{
         $this->username = $username;
         $this->password = $password;
     }
-    public static function logIn(User $user, mysqli $connect){
+    public static function logIn(User $user, mysqli $conn){
         
         //isključivo dvostruki navodnici
         $query_string = "SELECT * FROM user WHERE username='$user->username' AND password='$user->password'";
         //izvršavanje upita u bazi
-        return $connect->query($query_string);
+        return $conn->query($query_string);
         
         //return true;
     }

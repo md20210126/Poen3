@@ -9,7 +9,7 @@
         $username_forma = $_POST['username'];
         // echo $username_forma;
         $password_forma = $_POST['password'];
-        $id_forma = 1;
+        $id_forma = 2;
 
         $user = new User($id_forma, $username_forma, $password_forma);
         $result = User::logIn($user, $conn);

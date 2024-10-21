@@ -20,16 +20,35 @@
             return $conn->query($query_string);
         }
 
+        public static function getbyId($id, mysqli $conn) {
+            $query_string = "SELECT * FROM prijave WHERE id=$id";
+            return $conn->query($query_string);
+        }
+
         public static function deleteById($id, mysqli $conn)
         {
             $query_string = "DELETE FROM prijave WHERE id=$id";
             return $conn->query($query_string);
         }
 
+        public static function update(Prijava $prijava, mysqli $conn) {
+            $query_string = "
+                UPDATE prijave 
+                SET predmet = '$prijava->predmet', 
+                    katedra = '$prijava->katedra', 
+                    sala = '$prijava->sala', 
+                    datum = '$prijava->datum' 
+                WHERE id = $prijava->id}
+            ";
+        
+            return $conn->query($query_string);
+        }
+
+
         public static function add(Prijava $prijava, mysqli $conn)
         {
-            $query_str = "INSERT INTO prijave(predmet, katedra, sala, datum) VALUES ('$prijava->predmet', '$prijava->katedra', '$prijava->sala', '$prijava->datum')";
-            return $conn->query($query_str);
+            $query_string = "INSERT INTO prijave(predmet, katedra, sala, datum) VALUES ('$prijava->predmet', '$prijava->katedra', '$prijava->sala', '$prijava->datum')";
+            return $conn->query($query_string);
         }
 
 
