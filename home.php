@@ -146,7 +146,7 @@
                         <h3 class="modal-title text-center">Izmeni kolokvijum</h3>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" id="izmeniForm">
+                        <form action="obrada.php" method="post" id="izmeniForm">
                             <input id="id_predmeta" type="hidden" name="id_predmeta" readonly>
                             <div class="form-group">
                                 <label>Predmet</label>
@@ -189,13 +189,13 @@
             let sala = selectedRow.find('td:eq(2)').text();
             let datum = selectedRow.find('td:eq(3)').text();
 
-            // let id = $(this).val();
+            let id = $(this).val();
 
-            // $('#id_predmeta').val(id);
-            // $('#predmet').val(predmet);
-            // $('#katedra').val(katedra);
-            // $('#sala').val(sala);
-            // $('#datum').val(datum);
+            $('#id_predmeta').val(id);
+            $('#predmet').val(predmet);
+            $('#katedra').val(katedra);
+            $('#sala').val(sala);
+            $('#datum').val(datum);
         });
     </script>
 </body>

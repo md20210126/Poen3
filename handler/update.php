@@ -1,5 +1,4 @@
 <?php 
-require 'dbBroker.php'; // Include the database connection
 
 if (isset($_POST['id_predmeta']) 
     && isset($_POST['submit'])    
@@ -8,6 +7,8 @@ if (isset($_POST['id_predmeta'])
     && isset($_POST['katedra']) 
     && isset($_POST['sala']) 
     && isset($_POST['datum'])) {
+    
+ 
 
     $query = "
         UPDATE prijave 
@@ -17,6 +18,9 @@ if (isset($_POST['id_predmeta'])
             datum = '{$_POST['datum']}' 
         WHERE id = {$_POST['id_predmeta']}
     ";
+
+
+    
 
     $result = $conn->query($query);
 
