@@ -8,21 +8,7 @@ if (isset($_POST['id_predmeta'])
     && isset($_POST['sala']) 
     && isset($_POST['datum'])) {
     
- 
-
-    $query = "
-        UPDATE prijave 
-        SET predmet = '{$_POST['predmet']}', 
-            katedra = '{$_POST['katedra']}', 
-            sala = '{$_POST['sala']}', 
-            datum = '{$_POST['datum']}' 
-        WHERE id = {$_POST['id_predmeta']}
-    ";
-
-
-    
-
-    $result = $conn->query($query);
+    $status = Prijava::update(new Prijava($_POST['id_predmeta'],$_POST['predmet'], $_POST['katedra'], $_POST['sala'], $_POST['datum']), $conn);
 
     if ($result) {
         header("Location: home.php"); 
